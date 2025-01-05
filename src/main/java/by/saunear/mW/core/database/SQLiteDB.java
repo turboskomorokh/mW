@@ -23,7 +23,7 @@ public class SQLiteDB {
 
 	public void connect() {
 		try {
-			// Ручная проверка драйвера
+			// manual driver check
 			Class.forName("org.sqlite.JDBC");
 
 			this.conn = DriverManager.getConnection(path.toString());

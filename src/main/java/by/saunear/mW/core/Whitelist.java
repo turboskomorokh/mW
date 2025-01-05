@@ -14,8 +14,8 @@ public class Whitelist {
 	public boolean enabled;
 	private Logger logger;
 
-	public Whitelist(Map<String, Object> globalConfiguration, Path pluginFolder, Logger logger) {
-		this.configuration = globalConfiguration;
+	public Whitelist(Map<String, Object> configuration, Path pluginFolder, Logger logger) {
+		this.configuration = configuration;
 		this.logger = logger;
 
 		try {
