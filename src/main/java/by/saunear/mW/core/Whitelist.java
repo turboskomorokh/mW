@@ -10,18 +10,18 @@ import by.saunear.mW.database.SQLiteDB;
 public class Whitelist {
 
 	SQLiteDB db;
-	Configuration configuration;
+	Map<String, Object> configuration;
 	public boolean enabled;
 	private Logger logger;
 
-	public Whitelist(Configuration globalConfiguration, Path pluginFolder, Logger logger) {
+	public Whitelist(Map<String, Object> globalConfiguration, Path pluginFolder, Logger logger) {
 		this.configuration = globalConfiguration;
 		this.logger = logger;
 
 		try {
 			enabled = (boolean) this.configuration.get("enabled");
 
-			db = new SQLiteDB(pluginFolder.toString(), logger);
+			db = new SQLiteDB(pluginFolder.toString());
 		} catch (RuntimeException e) {
 			this.logger.error(e.getMessage());
 			enabled = false;

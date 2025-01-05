@@ -10,20 +10,13 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.slf4j.Logger;
-
-import by.saunear.mW.l10n.Messages;
-
 public class SQLiteDB {
 
 	private Connection conn = null;
 	private String path;
 
-	private Logger logger;
-
-	public SQLiteDB(String path, Logger logger) {
+	public SQLiteDB(String path) {
 		this.path = (Constants.urlPrefix) + Paths.get(path).resolve(Constants.urlFilename).toString();
-		this.logger = logger;
 		this.connect();
 		this.init();
 	}
@@ -35,13 +28,12 @@ public class SQLiteDB {
 
 			this.conn = DriverManager.getConnection(path.toString());
 		} catch (ClassNotFoundException e) {
-			logger.error(Messages.DATABASE_CONNECTION_ESTABLISHED + "\n" + e.getMessage());
+			e.printStackTrace();
 			throw new RuntimeException(e.getMessage());
 		} catch (SQLException e) {
-			logger.error(Messages.DATABASE_CONNECTION_ERROR + "\n" + e.getMessage());
+			e.printStackTrace();
 			throw new RuntimeException(e.getMessage());
 		}
-		logger.info(Messages.DATABASE_CONNECTION_ESTABLISHED);
 	}
 
 	public void init() {
@@ -49,7 +41,7 @@ public class SQLiteDB {
 			Statement stmt = conn.createStatement();
 			stmt.execute(Constants.sqlCreateWhitelist);
 		} catch (SQLException e) {
-			logger.error(Messages.DATABASE_TABLE_CREATION_ERROR);
+			e.printStackTrace();
 			throw new RuntimeException(e.getMessage());
 		}
 	}
@@ -62,7 +54,7 @@ public class SQLiteDB {
 			pstmt.setBoolean(3, true);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
-			logger.error(Messages.DATABASE_TABLE_INSERTION_ERROR);
+			e.printStackTrace();
 			throw new RuntimeException(e.getMessage());
 		}
 	}
@@ -73,7 +65,7 @@ public class SQLiteDB {
 			pstmt.setString(1, playerName);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
-			logger.error(Messages.DATABASE_TABLE_DELETION_ERROR);
+			e.printStackTrace();
 			throw new RuntimeException(e.getMessage());
 		}
 	}
@@ -85,7 +77,7 @@ public class SQLiteDB {
 			ResultSet rs = pstmt.executeQuery();
 			return rs.next();
 		} catch (SQLException e) {
-			logger.error(Messages.DATABASE_TABLE_ENTRY_ERROR);
+			e.printStackTrace();
 			throw new RuntimeException(e.getMessage());
 		}
 	}
@@ -102,7 +94,7 @@ public class SQLiteDB {
 				playersList.put(playerTgId, playerName);
 			}
 		} catch (SQLException e) {
-			logger.error(Messages.DATABASE_TABLE_ENTRIES_ERROR);
+			e.printStackTrace();
 			throw new RuntimeException(e.getMessage());
 		}
 		return playersList;
@@ -112,10 +104,9 @@ public class SQLiteDB {
 		try {
 			if (conn != null && !conn.isClosed()) {
 				conn.close();
-				logger.info(Messages.DATABASE_CONNECTION_CLOSED);
 			}
 		} catch (SQLException e) {
-			logger.error(Messages.DATABASE_CONNECTION_CLOSE_ERROR);
+			e.printStackTrace();
 			throw new RuntimeException(e.getMessage());
 		}
 	}

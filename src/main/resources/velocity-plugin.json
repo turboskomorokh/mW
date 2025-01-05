@@ -1,0 +1,10 @@
+{
+    "id": "mwl",
+    "name": "mWl",
+    "version": "0.0.1-SNAPSHOT",
+    "authors": [
+      "turboskomorokh"
+    ],
+    "main": "by.saunear.mW.velocity.VelocityProxyPlugin"
+  }
+  

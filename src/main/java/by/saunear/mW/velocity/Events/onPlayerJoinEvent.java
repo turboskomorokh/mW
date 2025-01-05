@@ -14,9 +14,11 @@ public class onPlayerJoinEvent implements EventHandler<PreLoginEvent> {
 	
 	private Whitelist wl;
 	private Logger logger;
+	private Messages messages;
 	
-	public onPlayerJoinEvent(Logger logger, Whitelist wl) {
+	public onPlayerJoinEvent(Logger logger, Messages messages, Whitelist wl) {
 		this.wl = wl;
+		this.messages = messages;
 		this.logger = logger;
 	}
 
@@ -26,12 +28,12 @@ public class onPlayerJoinEvent implements EventHandler<PreLoginEvent> {
 		// TODO 30/12/2024 Улучшить, как-нибудь, этого маловато для отказоустойчивости
 		// TODO 03/01/2025 Или нет.
 		if (!wl.check(username) && wl.enabled) {
-			logger.info(Messages.WHITELIST_JOIN_UNREGISTERED_PLAYER.replace("%playerName", username));
+			logger.info(messages.get("WHITELIST_JOIN_UNREGISTERED_PLAYER").replace("%playerName", username));
 			event.setResult(PreLoginEvent.PreLoginComponentResult
-					.denied(Component.text(Messages.WHITELIST_JOIN_REGISTER_MESSAGE)));
+					.denied(Component.text(messages.get("WHITELIST_JOIN_REGISTER_MESSAGE"))));
 			return;
 		}
-		logger.info(Messages.WHITELIST_JOIN_REGISTERED_PLAYER.replace("%playerName", username));
+		logger.info(messages.get("WHITELIST_JOIN_REGISTERED_PLAYER").replace("%playerName", username));
 	}
 
 }
