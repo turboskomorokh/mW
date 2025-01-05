@@ -1,4 +1,5 @@
 # MilliWatt (mW)
+[![Java CI with Maven](https://github.com/turboskomorokh/mW/actions/workflows/maven.yml/badge.svg)](https://github.com/turboskomorokh/mW/actions/workflows/maven.yml)
 ## Плагин
 **MilliWatt (mW)** - это **плагин-whitelist**, предназначенный для регистрации ников игроков через Telegram или внутреннюю команду `mwl`.
 
