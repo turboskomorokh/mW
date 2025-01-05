@@ -34,6 +34,7 @@ public class mwlCommand implements SimpleCommand {
 		
 		if(!executor.hasPermission("mwl.mwl")) {
 			executor.sendMessage(Component.text(messages.get("PLUGIN_COMMAND_NO_PERMISSION")));
+			return;
 		}
 		
 		if(args.length == 0) {
