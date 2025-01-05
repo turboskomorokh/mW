@@ -66,7 +66,7 @@ public class mwlCommand implements SimpleCommand {
 			case 'a':
 				try {
 					if (!args[1].matches("^[a-zA-Z0-9-_]+$") || 16 < args[1].length() || args[1].length() < 4) {
-						executor.sendMessage(Component.text(messages.get("PLUGIN_COMMAND_WRONG_NICKNAME")));
+						executor.sendMessage(Component.text(messages.get("PLUGIN_COMMAND_WRONG_PLAYERNAME")));
 						return;
 					}
 					wl.add(args[1], (long) 0);
@@ -81,7 +81,7 @@ public class mwlCommand implements SimpleCommand {
 			case 'r':
 				try {
 					if (!args[1].matches("^[a-zA-Z0-9-_]+$") || 16 < args[1].length() || args[1].length() < 4) {
-						executor.sendMessage(Component.text(messages.get("PLUGIN_COMMAND_WRONG_NICKNAME")));
+						executor.sendMessage(Component.text(messages.get("PLUGIN_COMMAND_WRONG_PLAYERNAME")));
 						return;
 					}
 					if(!wl.check(args[1])) {						

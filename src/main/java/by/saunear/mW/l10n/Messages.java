@@ -27,7 +27,6 @@ public class Messages extends GenericConfig {
 				throw new NullPointerException("Message not found in the map");
 			}
 		} catch (Exception emsg) {
-			emsg.printStackTrace();
 			try {
 				message = Constants.class.getDeclaredField(name).toGenericString();
 			} catch (Exception efield) {

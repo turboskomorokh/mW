@@ -71,7 +71,7 @@ public class AuthBot extends TelegramLongPollingBot {
         user.put("username", null);
 
         sendMessage(chatId, messages.get("TELEGRAM_REGISTER_BEGIN"));
-        sendMessage(chatId, messages.get("TELEGRAM_REGISTER_ASK_NICKNAME"));
+        sendMessage(chatId, messages.get("TELEGRAM_REGISTER_ASK_PLAYERNAME"));
     }
 
     private void stage1(Update update, Map<String, Object> user) {
@@ -80,18 +80,18 @@ public class AuthBot extends TelegramLongPollingBot {
 
         if (!message.matches("^[a-zA-Z0-9-_]+$") || message.length() < 4 || message.length() > 16) {
             sendMessage(chatId,
-            messages.get("TELEGRAM_REGISTER_NICKNAME_WRONG").replace("%playerName", (String) user.get("username")));
+            messages.get("TELEGRAM_REGISTER_PLAYERNAME_WRONG").replace("%playerName", (String) user.get("username")));
             return;
         }
         if (wl.check(message)) {
             sendMessage(chatId,
-            messages.get("TELEGRAM_REGISTER_NICKNAME_CLAIMED").replace("%playerName", (String) user.get("username")));
+            messages.get("TELEGRAM_REGISTER_PLAYERNAME_CLAIMED").replace("%playerName", (String) user.get("username")));
             return;
         }
 
         user.put("username", message);
         sendMessage(chatId,
-                messages.get("TELEGRAM_REGISTER_NICKNAME_CONFIRMATION").replace("%playerName", (String) user.get("username")));
+                messages.get("TELEGRAM_REGISTER_PLAYERNAME_CONFIRMATION").replace("%playerName", (String) user.get("username")));
         user.put("stage", 2);
     }
 
