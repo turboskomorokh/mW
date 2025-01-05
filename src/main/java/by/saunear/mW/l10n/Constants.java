@@ -1,16 +1,6 @@
 package by.saunear.mW.l10n;
 
 public class Constants {
-    public static String DATABASE_CONNECTION_ESTABLISHED = "Database connection has been established.";
-    public static String DATABASE_CONNECTION_NO_DRIVER_ERROR = "Database driver SQLite JDBC not found.";
-    public static String DATABASE_CONNECTION_ERROR = "Database connection failed!";
-    public static String DATABASE_CONNECTION_CLOSE_ERROR = "Database connection close failed.";
-    public static String DATABASE_CONNECTION_CLOSED = "Database connection closed.";
-    public static String DATABASE_TABLE_CREATION_ERROR = "Database table initialization failed!";
-    public static String DATABASE_TABLE_INSERTION_ERROR = "Database player insertion failed!";
-    public static String DATABASE_TABLE_DELETION_ERROR = "Database player deletion failed!";
-    public static String DATABASE_TABLE_ENTRY_ERROR = "Database entry access error.";
-    public static String DATABASE_TABLE_ENTRIES_ERROR = "Database entries access error.";
     public static String WHITELIST_JOIN_REGISTER_MESSAGE = "Register your player name!";
     public static String WHITELIST_JOIN_UNREGISTERED_PLAYER = "Unregistered player %playerName trying to connect!";
     public static String WHITELIST_JOIN_REGISTERED_PLAYER = "Registered player %playerName trying to connect!";
