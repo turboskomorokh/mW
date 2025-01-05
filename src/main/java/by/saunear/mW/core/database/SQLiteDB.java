@@ -1,4 +1,4 @@
-package by.saunear.mW.database;
+package by.saunear.mW.core.database;
 
 import java.nio.file.Paths;
 import java.sql.Connection;

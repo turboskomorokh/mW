@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 
-import by.saunear.mW.database.SQLiteDB;
+import by.saunear.mW.core.database.SQLiteDB;
 
 public class Whitelist {
 

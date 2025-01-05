@@ -1,4 +1,4 @@
-package by.saunear.mW.database;
+package by.saunear.mW.core.database;
 
 public class Constants {
 	
